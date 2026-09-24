@@ -17,8 +17,8 @@ export default function CartDrawer({ isOpen, onClose, onOpenAuth }) {
 
     const handleCheckOut = () => {
         if (!isAuthenticated) {
-            onClose(); // إغلاق السلة
-            onOpenAuth(); // فتح مودال تسجيل الدخول
+            onClose(); // close the cart
+            onOpenAuth(); //open login modal
         } else {
             setIsCheckOutOpen(true);
         }
@@ -28,7 +28,7 @@ export default function CartDrawer({ isOpen, onClose, onOpenAuth }) {
 
     return (
         <div className="fixed inset-0 z-50 overflow-hidden ">
-            {/* خلفية معتمة عند فتح السلة */}
+            {/*dark bg once youy open the cart*/}
             <div
                 className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
                 onClick={onClose}
@@ -39,7 +39,7 @@ export default function CartDrawer({ isOpen, onClose, onOpenAuth }) {
                     onClick={(e) => e.stopPropagation()}
                     className="w-screen max-w-md bg-white dark:bg-gray-800 shadow-2xl flex flex-col justify-between z-10"
                 >
-                    {/* رأس السلة */}
+                    {/*cart's headers*/}
                     <div className="p-6 border-b border-gray-100 flex items-center justify-between">
                         <div className="flex items-center gap-2">
                             <ShoppingBag className="w-5 h-5 text-green-600" />
@@ -53,7 +53,7 @@ export default function CartDrawer({ isOpen, onClose, onOpenAuth }) {
                         </button>
                     </div>
 
-                    {/* محتوى السلة */}
+                    {/* cart's content*/}
                     <div className="flex-1 overflow-y-auto p-6 space-y-4">
                         {cart.length === 0 ? (
                             <div className="text-center py-12 text-gray-400">
@@ -79,8 +79,8 @@ export default function CartDrawer({ isOpen, onClose, onOpenAuth }) {
                                         <span className="text-xs font-bold text-green-600">
                                             ${item.price}
                                         </span>
+                                        {/* plus or miuns buttons */}
 
-                                        {/* أزرار زيادة ونقصان الكمية */}
                                         <div className="flex items-center gap-2 mt-2">
                                             <button
                                                 onClick={() => updataQuantity(item.id, item.quantity - 1)}
@@ -110,8 +110,8 @@ export default function CartDrawer({ isOpen, onClose, onOpenAuth }) {
                             ))
                         )}
                     </div>
+                    {/* check and the buttom of the cart */}
 
-                    {/* أسفل السلة والفاتورة */}
                     {cart.length > 0 && (
                         <div className="p-6 border-t border-gray-200 dark:bg-gray-800 bg-gray-50 space-y-4">
                             <div className="flex justify-between items-center text-lg font-extrabold">

@@ -39,7 +39,7 @@ export default function ProductCard({ product, onOpenAuth, onOpenDetails }) {
     return (
         <div className="bg-white dark:bg-gray-800 dark:border-gray-500 rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
 
-            {/* صورة المنتج */}
+            {/* pro image  */}
             <div
                 onClick={() => setIsDeatailsOpn(true)}
                 className="relative p-6 dark:bg-gray-700 dark:border-gray-500 dark:border-b bg-green-50 flex items-center justify-center h-64 overflow-hidden">
@@ -70,7 +70,7 @@ export default function ProductCard({ product, onOpenAuth, onOpenDetails }) {
                 </span>
             </div>
 
-            {/* تفاصيل المنتج */}
+            {/*  pro details */}
             <div className="p-5 flex flex-col flex-1 justify-between ">
                 <div>
                     <div className="flex items-center gap-1 text-amber-500 mb-2">
@@ -89,7 +89,7 @@ export default function ProductCard({ product, onOpenAuth, onOpenDetails }) {
 
                 </div>
 
-                {/* السعر وزر الإضافة */}
+                {/*   price an dadding button */}
                 <div className=" md:pt-4 border-t dark:border-gray-600 border-gray-100 flex items-center justify-between mt-auto  md:gap-2 md:text-4xl">
                     <div>
                         <button

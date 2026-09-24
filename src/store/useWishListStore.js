@@ -38,8 +38,7 @@ export const useWishListStore = create(
   persist(
     (set, get) => ({
       wishList: [],
-
-      // إضافة أو إزالة المنتج من المفضلة
+// adding or removing pro from the fav
       toggleWishList: (product) => {
         const { wishList } = get();
         const exists = wishList.some((item) => item.id === product.id);
@@ -50,17 +49,15 @@ export const useWishListStore = create(
           set({ wishList: [...wishList, product] });
         }
       },
-
-      // التحقق مما إذا كان المنتج موجوداً في المفضلة
+// checking if the pro in the fav
       isInWishList: (productId) => {
         return get().wishList.some((item) => item.id === productId);
       },
-
-      // تفريغ قائمة المفضلة
+//  empty the fav
       clearWishList: () => set({ wishList: [] }),
     }),
     {
-      name: "wishList-storage", // المكان الصحيح لاسم الـ LocalStorage
+      name: "wishList-storage", // here where we store the name in the localstroge
     },
   ),
 );

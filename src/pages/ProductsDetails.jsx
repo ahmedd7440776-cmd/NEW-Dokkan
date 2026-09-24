@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { useCartStore } from "../store/useCartStore"; // افترضنا وجود متجر السلة
+import { useCartStore } from "../store/useCartStore";
 
 export default function ProductDetailsModal({ product, isOpen, onClose }) {
     const [quantity, setQuantity] = useState(1);
-    const addToCart = useCartStore((state) => state.addToCart); // أو دالة السلة الخاصة بك
+    const addToCart = useCartStore((state) => state.addToCart);
 
     if (!isOpen || !product) return null;
 
     const handleAddToCart = () => {
-        // إضافة المنتج مع الكمية المحددة إلى السلة
+        // adding the specafic quantity and the product to the cart
         addToCart({ ...product, quantity });
         onClose();
     };
@@ -17,7 +17,7 @@ export default function ProductDetailsModal({ product, isOpen, onClose }) {
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
             <div className="bg-white dark:bg-gray-800 rounded-3xl max-w-2xl w-full p-6 relative overflow-hidden shadow-2xl animate-fade-in">
 
-                {/* زر الإغلاق */}
+                {/*closing button*/}
                 <button
                     onClick={onClose}
                     className="absolute top-4 left-4 w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-500 hover:text-black dark:hover:text-white transition"
@@ -26,7 +26,8 @@ export default function ProductDetailsModal({ product, isOpen, onClose }) {
                 </button>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                    {/* صورة المنتج */}
+                    
+                    {/* product image*/}
                     <div className="bg-gray-50 dark:bg-gray-700/50 rounded-2xl p-4 flex items-center justify-center h-64 md:h-80">
                         <img
                             src={product.image || product.img}
@@ -35,22 +36,23 @@ export default function ProductDetailsModal({ product, isOpen, onClose }) {
                         />
                     </div>
 
-                    {/* معلومات المنتج */}
+                    {/* product info*/}
                     <div className="flex flex-col justify-between h-full space-y-4">
                         <div>
-                            {/* القسم / التصنيف */}
+
+                            {/* category  */}
                             {product.category && (
                                 <span className="text-xs font-semibold uppercase tracking-wider text-green-600 bg-green-50 dark:bg-green-950/40 px-2.5 py-1 rounded-full">
                                     {product.category}
                                 </span>
                             )}
 
-                            {/* عنوان المنتج */}
+                            {/* product title*/}
                             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-2">
                                 {product.title || product.name}
                             </h2>
 
-                            {/* السعر */}
+                            {/*price*/}
                             <div className="flex items-center gap-3 mt-3">
                                 <span className="text-2xl font-black text-green-600 dark:text-green-400">
                                     {product.price} ج.م
@@ -62,13 +64,13 @@ export default function ProductDetailsModal({ product, isOpen, onClose }) {
                                 )}
                             </div>
 
-                            {/* الوصف */}
+                            {/* discurabtion*/}
                             <p className="text-gray-600 dark:text-gray-300 text-sm mt-3 leading-relaxed">
                                 {product.description || "لا يوجد وصف إضافي متوفر لهذا المنتج حالياً."}
                             </p>
                         </div>
 
-                        {/* التحكم في الكمية والإضافة للسلة */}
+                        {/* controling the quantity and adding to the cart */}
                         <div className="pt-4 border-t border-gray-100 dark:border-gray-700 space-y-4">
                             <div className="flex items-center justify-between">
                                 <span className="text-sm font-medium text-gray-700 dark:text-gray-300">

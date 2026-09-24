@@ -3,10 +3,10 @@ import React from 'react'
 export default function ProductSkelton() {
   return (
       <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-3xl p-4 flex flex-col justify-between animate-shimmer">
-          {/* مكان الصورة */}
+          {/* image place*/}
           <div className="aspect-square w-full bg-gray-200 dark:bg-gray-800 rounded-2xl mb-4" />
 
-          {/* تفاصيل المنتج */}
+          {/* product details*/}
           <div className="space-y-3">
               <div className="flex justify-between">
                   <div className="h-3 w-16 bg-gray-200 dark:bg-gray-800 rounded" />

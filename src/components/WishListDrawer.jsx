@@ -220,7 +220,7 @@ export default function WishListDrawer({ isOpen, onClose }) {
                         )}
                     </div>
 
-                    {/* الفوتر عند وجود منتجات */}
+                    {/*footer when fav exists*/}
                     {wishList.length > 0 && (
                         <div className="p-5 border-t border-gray-100 dark:border-gray-800">
                             <button

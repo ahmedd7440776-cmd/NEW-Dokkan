@@ -62,7 +62,7 @@ function Strorefront({ onOpenAuth }) {
       <section className="max-w-7xl mx-auto px-4 py-6">
         <CategoryFilter />
 
-        {/* Loading Skeletons - يدعم الدارك مود */}
+        {/* Loading Skeletons - support dark mode*/}
 
         {/* {isLoading && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
