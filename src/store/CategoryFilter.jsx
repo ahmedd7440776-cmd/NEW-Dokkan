@@ -21,15 +21,15 @@ export default function CategoryFilter() {
 
     return (
 
-        <div className=" relative flex flex-col gap-1 items-center overflow-x-auto py-4 no-scrollbar">
-{/* price filter */}
-            <div>
-                <PriceFilter />
+        <>
+            <PriceFilter />
 
-            </div>
+
 
 
             {/*  category filter bars */}
+
+            
             <div className="flex items-center gap-2 overflow-x-auto py-4 no-scrollbar">
                 {allCategories.map((cat) => (
                     <button
@@ -47,11 +47,12 @@ export default function CategoryFilter() {
                     </button>
                 ))}
             </div>
+</>
+      
 
 
 
-
-        </div>
+    
 
     )
 }
