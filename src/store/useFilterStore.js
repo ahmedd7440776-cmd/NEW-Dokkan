@@ -3,7 +3,10 @@ import { create } from "zustand";
 export const useFilterStore = create((set) => ({
   searchQuery: "",
   selectedCategory: "all",
+  maxPrice: "500",
 
   setSearchQuery: (query) => set({ searchQuery: query }),
-  setSelectedCategory: (category) => set({ selectedCategory: category ?? 'all' }),
+  setSelectedCategory: (category) =>
+    set({ selectedCategory: category ?? "all" }),
+  setMaxPrice: (Price) => set({ maxPrice: Price }),
 }));

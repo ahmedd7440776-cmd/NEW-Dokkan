@@ -26,6 +26,7 @@ function Strorefront({ onOpenAuth }) {
 
   const searchQuery = useFilterStore((state) => state.searchQuery);
   const selectedCategory = useFilterStore((state) => state.selectedCategory) || 'all';
+  const maxPrice = useFilterStore((state) => state.maxPrice)
 
   const filteredProducts = products?.filter((product) => {
     if (!product || !product.title) return false;
@@ -37,13 +38,14 @@ function Strorefront({ onOpenAuth }) {
 
     const query = (searchQuery || '').trim().toLowerCase();
     const title = (product.title || '').toLowerCase();
-
     const matchesSearch =
       !query ||
       title.startsWith(query) ||
       title.split(' ').some((word) => word.startsWith(query));
 
-    return matchesCategory && matchesSearch;
+    const matechesPrice = Number(product.price) <= maxPrice;
+
+    return matchesCategory && matchesSearch && matechesPrice;
   });
 
   return (
@@ -72,7 +74,6 @@ function Strorefront({ onOpenAuth }) {
             ))}
           </div>
         )} */}
-
 
         {/* anthor way uesing skelton */}
         {isLoading && (

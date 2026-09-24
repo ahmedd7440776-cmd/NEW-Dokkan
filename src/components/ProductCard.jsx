@@ -5,6 +5,7 @@ import { useAuthStore } from '../store/useAuthStore';
 import { useState } from 'react';
 import ProductsDetails from '../pages/ProductsDetails';
 import { useWishListStore } from '../store/useWishListStore';
+import PriceFilter from '../store/PriceFilter';
 
 
 export default function ProductCard({ product, onOpenAuth, onOpenDetails }) {

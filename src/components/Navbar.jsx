@@ -307,6 +307,7 @@ import AuthModle from './AuthModle';
 import { useWishListStore } from '../store/useWishListStore';
 import { createPortal } from 'react-dom';
 import { useThemeStore } from '../store/useThemeStore';
+import PriceFilter from '../store/PriceFilter';
 
 export default function Navbar({ onOpenCart, onOpenWishList }) {
     const { isDarkMode, toggleDarkMode } = useThemeStore();
@@ -364,6 +365,7 @@ export default function Navbar({ onOpenCart, onOpenWishList }) {
                         )}
                     </button>
                 </div>
+
 
                 {/* 2. شريط البحث */}
                 <form onSubmit={handleSearchSubmit} className="relative flex flex-1 items-center max-w-xs sm:max-w-md mx-2">
